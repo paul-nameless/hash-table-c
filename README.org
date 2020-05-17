@@ -1,0 +1,15 @@
+* Hash table in C
+
+This is project for learning, implemented simple hash table using double hashing for collision handling.
+
+Double hashing aims to solve the clustering problem. To do so, we use a second hash function to choose a new index for the item. Using a hash function gives us a new bucket, the index of which should be evenly distributed across all buckets. This removes clustering, but also removes any boosted cache performance from locality of reference. Double hashing is a common method of collision management in production hash tables.
+
+Hash table resizes itself when *load* (number of items / size) is more than 0.7 and resizes down when *load* less than 0.1.
+
+#+begin_src c
+  ht_hash_table* ht = ht_new();
+  ht_set(ht, "key", "value");
+  ht_get(ht, "key");
+  ht_del(ht, "key");
+  ht_del_hash_table(ht);
+#+end_src
